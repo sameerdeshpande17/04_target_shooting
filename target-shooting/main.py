@@ -28,11 +28,12 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 engine.handle_click(event.pos)
 
-        engine.update()
+        dt = clock.tick(60) / 1000.0
+
+        engine.update(dt)
         engine.draw(screen, font)
 
         pygame.display.flip()
-        clock.tick(60)
 
     pygame.quit()
 
