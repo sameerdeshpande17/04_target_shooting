@@ -25,8 +25,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 engine.handle_click(event.pos)
+
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r and engine.game_over:
+                    engine.restart_round()
 
         dt = clock.tick(60) / 1000.0
 
